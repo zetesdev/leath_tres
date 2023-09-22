@@ -8,7 +8,7 @@ import { OrbitControls } from '@tresjs/cientos';
 
 <template>
   <div class="w-[1024px] h-[512px]">
-    <TresCanvas clear-color="white">
+    <TresCanvas clear-color="#82DBC5">
       <TresPerspectiveCamera :position="[1, 1, 1]" :look-at="[0, 0, 0]" />
       <OrbitControls />
       <Suspense>
@@ -17,8 +17,6 @@ import { OrbitControls } from '@tresjs/cientos';
       <Suspense>
         <MyEnviro />
       </Suspense>
-      <!-- 
-      <TresAmbientLight :intensity="25" /> -->
     </TresCanvas>
   </div>
 </template>
