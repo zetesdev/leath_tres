@@ -8,8 +8,8 @@ import { OrbitControls } from '@tresjs/cientos';
 
 <template>
   <div class="w-[1024px] h-[512px]">
-    <TresCanvas clear-color="#82DBC5">
-      <TresPerspectiveCamera :position="[1, 1, 1]" :look-at="[0, 0, 0]" />
+    <TresCanvas clear-color="white">
+      <TresPerspectiveCamera :position="[0.5, 0.5, 0.5]" :look-at="[0, 0, 0]" />
       <OrbitControls />
       <Suspense>
         <MultiTool />
