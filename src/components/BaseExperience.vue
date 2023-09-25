@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import MultiTool from './MultiTool.vue';
-import MyEnviro from './MyEnviro.vue';
-
 import { TresCanvas } from '@tresjs/core';
 import { OrbitControls } from '@tresjs/cientos';
+
+import MultiTool from './MultiTool.vue';
+import MyEnviro from './MyEnviro.vue';
 </script>
 
 <template>
