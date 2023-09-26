@@ -1,28 +1,42 @@
 <script setup lang="ts">
+import { watch, toRefs } from 'vue';
 import { Texture, MeshStandardMaterial } from 'three';
 import { useTexture } from '@tresjs/core';
 import { useGLTF } from '@tresjs/cientos';
 import anime from 'animejs';
+import { useChoicesStore } from '../stores/choices.ts';
+
+const { open } = toRefs(useChoicesStore());
 
 const customModel = await useGLTF('src/assets/tool_01.glb');
 
-let obj = { animated: 0 };
+const pliersValues = {
+  upper: 0,
+  lower: 0,
+};
 
-function animateValue() {
+function animateValue(toOpen: boolean) {
+  const targetUpper = toOpen ? 2.5 : 0;
+  const targetLower = toOpen ? -2.5 : 0;
+
   anime({
-    targets: obj,
-    animated: 5,
-    duration: 3000,
+    targets: pliersValues,
+    upper: targetUpper,
+    lower: targetLower,
+    duration: 2000,
     easing: 'easeInOutQuad',
     update: function () {
-      console.log(obj.animated); // Test
+      customModel.nodes.SM_cover_01.rotation.z = pliersValues.upper;
+      customModel.nodes.SM_body_01.rotation.z = pliersValues.lower;
     },
   });
 }
 
-animateValue();
+watch(open, (newVal) => {
+  animateValue(newVal);
+});
 
-// customModel.nodes.SM_pliers_01.position.set(0, 0, 0.25);
+console.log(customModel.nodes);
 
 //TEXTURES LOADING
 const customTextures = (await useTexture([

@@ -6,7 +6,7 @@ const { toggleOpen, open } = toRefs(useChoicesStore());
 </script>
 
 <template>
-  <div class="bg-red-500" @click="toggleOpen">
+  <button class="bg-red-500 text-3xl" @click="toggleOpen">
     {{ open ? 'CLOSE' : 'OPEN' }}
-  </div>
+  </button>
 </template>
