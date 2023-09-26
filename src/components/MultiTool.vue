@@ -2,7 +2,26 @@
 import { Texture, MeshStandardMaterial } from 'three';
 import { useTexture } from '@tresjs/core';
 import { useGLTF } from '@tresjs/cientos';
+import anime from 'animejs';
+
 const customModel = await useGLTF('src/assets/tool_01.glb');
+
+let obj = { animated: 0 };
+
+function animateValue() {
+  anime({
+    targets: obj,
+    animated: 5,
+    duration: 3000,
+    easing: 'easeInOutQuad',
+    update: function () {
+      console.log(obj.animated); // Test
+    },
+  });
+}
+
+animateValue();
+
 // customModel.nodes.SM_pliers_01.position.set(0, 0, 0.25);
 
 //TEXTURES LOADING
@@ -47,8 +66,6 @@ if (customModel.materials.M_scissors instanceof MeshStandardMaterial) {
   customModel.materials.M_scissors.normalMap = customTextures[6];
   customModel.materials.M_scissors.normalMap.flipY = false;
 }
-
-console.log(customModel.materials);
 </script>
 
 <template>
