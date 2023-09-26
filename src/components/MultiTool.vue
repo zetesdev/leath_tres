@@ -11,23 +11,28 @@ const { open } = toRefs(useChoicesStore());
 const customModel = await useGLTF('src/assets/tool_01.glb');
 
 const pliersValues = {
-  upper: 0,
-  lower: 0,
+  upperHandle: 0,
+  upperPlier: 0,
+  lowerHandle: 0,
 };
 
 function animateValue(toOpen: boolean) {
-  const targetUpper = toOpen ? 2.5 : 0;
-  const targetLower = toOpen ? -2.5 : 0;
+  const targetUpper = toOpen ? 2.7 : 0;
+  const targetLower = toOpen ? -2.7 : 0;
+  const targetPlier = toOpen ? 0.15 : 0;
 
   anime({
     targets: pliersValues,
-    upper: targetUpper,
-    lower: targetLower,
-    duration: 2000,
+    upperHandle: targetUpper,
+    lowerHandle: targetLower,
+    upperPlier: targetPlier,
+    duration: 1500,
     easing: 'easeInOutQuad',
     update: function () {
-      customModel.nodes.SM_cover_01.rotation.z = pliersValues.upper;
-      customModel.nodes.SM_body_01.rotation.z = pliersValues.lower;
+      customModel.nodes.SM_cover_01.rotation.z = pliersValues.upperHandle;
+      customModel.nodes.SM_body_01.rotation.z = pliersValues.lowerHandle;
+      customModel.nodes.SM_pliers_01.rotation.z = pliersValues.upperPlier;
+      customModel.nodes.SM_pliers_02.rotation.z = -pliersValues.upperPlier;
     },
   });
 }
@@ -85,29 +90,3 @@ if (customModel.materials.M_scissors instanceof MeshStandardMaterial) {
 <template>
   <primitive :object="customModel.scene"></primitive>
 </template>
-
-<!-- const textures = useTexture({
-  cover_01_normalMap: 'textures/T_cover_Normal.png',
-  metalBody_01_baseColor: 'textures/T_metalBody_01_BaseColor.png',
-  metalBody_01_normalMap: 'textures/T_metalBody_01_Normal.png',
-  metalBody_02_normalMap: 'textures/T_MetalBody_02_Normal.png',
-  peseta_normalMap: 'textures/T_peseta_Normal.png',
-  pliers_normalMap: 'textures/T_pliers_Normal.png',
-  scissors_normalMap: 'textures/T_scissors_Normal.png',
-});
-
-nodes.SM_cover_01.material.normalMap = textures.cover_01_normalMap;
-nodes.SM_cover_01.material.normalMap.flipY = false;
-
-nodes.SM_body_01.material.map = textures.metalBody_01_baseColor;
-nodes.SM_body_01.material.map.flipY = false;
-nodes.SM_body_01.material.normalMap = textures.metalBody_01_normalMap;
-nodes.SM_body_01.material.normalMap.flipY = false;
-nodes.SM_bodyTop_003.material.normalMap = textures.metalBody_02_normalMap;
-nodes.SM_bodyTop_003.material.normalMap.flipY = false;
-nodes.SM_screwdriver_01.material.normalMap = textures.peseta_normalMap;
-nodes.SM_screwdriver_01.material.normalMap.flipY = false;
-nodes.SM_pliers_01.material.normalMap = textures.pliers_normalMap;
-nodes.SM_pliers_01.material.normalMap.flipY = false;
-nodes.SM_scissors_01.material.normalMap = textures.scissors_normalMap;
-nodes.SM_scissors_01.material.normalMap.flipY = false; -->
