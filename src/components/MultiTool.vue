@@ -6,7 +6,7 @@ import { useGLTF } from '@tresjs/cientos';
 import anime from 'animejs';
 import { useChoicesStore } from '../stores/choices.ts';
 
-const { open } = toRefs(useChoicesStore());
+const { open, scissors, screwdriver } = toRefs(useChoicesStore());
 
 const customModel = await useGLTF('src/assets/tool_01.glb');
 
@@ -14,9 +14,12 @@ const pliersValues = {
   upperHandle: 0,
   upperPlier: 0,
   lowerHandle: 0,
+  screwdriver: 0,
+  scissorsBase: 0,
+  scissorsBlade: 0,
 };
 
-function animateValue(toOpen: boolean) {
+function animatePliers(toOpen: boolean) {
   const targetUpper = toOpen ? 2.7 : 0;
   const targetLower = toOpen ? -2.7 : 0;
   const targetPlier = toOpen ? 0.15 : 0;
@@ -37,8 +40,47 @@ function animateValue(toOpen: boolean) {
   });
 }
 
+function animateScissors(toOpen: boolean) {
+  const targetScissors = toOpen ? -2.8 : 0;
+  const targetBlade = toOpen ? -0.6 : 0;
+
+  anime({
+    targets: pliersValues,
+    scissorsBase: targetScissors,
+    scissorsBlade: targetBlade,
+    duration: 1500,
+    easing: 'easeInOutQuad',
+    update: function () {
+      customModel.nodes.SM_scissors_01.rotation.z = pliersValues.scissorsBase;
+      customModel.nodes.SM_scissors_02.rotation.z = pliersValues.scissorsBlade;
+    },
+  });
+}
+
+function animateScrewdriver(toOpen: boolean) {
+  const targetScrewdriver = toOpen ? 3.15 : 0;
+
+  anime({
+    targets: pliersValues,
+    screwdriver: targetScrewdriver,
+    duration: 1500,
+    easing: 'easeInOutQuad',
+    update: function () {
+      customModel.nodes.SM_screwdriver_01.rotation.z = pliersValues.screwdriver;
+    },
+  });
+}
+
 watch(open, (newVal) => {
-  animateValue(newVal);
+  animatePliers(newVal);
+});
+
+watch(scissors, (newVal) => {
+  animateScissors(newVal);
+});
+
+watch(screwdriver, (newVal) => {
+  animateScrewdriver(newVal);
 });
 
 console.log(customModel.nodes);
