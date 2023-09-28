@@ -34,7 +34,7 @@ const screwdriverClass = computed(() => {
 </script>
 
 <template>
-  <div class="flexr">
+  <div class="flex justify-center w-full">
     <button
       :class="pliersClass"
       @click="toggleOpen"
