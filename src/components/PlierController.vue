@@ -34,23 +34,23 @@ const screwdriverClass = computed(() => {
 </script>
 
 <template>
-  <div class="flex">
+  <div class="flexr">
     <button
       :class="pliersClass"
       @click="toggleOpen"
       :disabled="scissors || screwdriver"
     >
-      {{ open }}
+      pliers
     </button>
     <button :class="scissorsClass" @click="toggleScissors" :disabled="open">
-      {{ scissors }}
+      scissors
     </button>
     <button
       :class="screwdriverClass"
       @click="toggleScrewdriver"
       :disabled="open"
     >
-      {{ screwdriver }}
+      screwdriver
     </button>
   </div>
 </template>
@@ -65,6 +65,6 @@ button {
 }
 
 .inactive {
-  @apply bg-red-200;
+  @apply bg-red-200 text-gray-200;
 }
 </style>

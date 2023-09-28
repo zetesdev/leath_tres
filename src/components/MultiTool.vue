@@ -8,7 +8,7 @@ import { useChoicesStore } from '../stores/choices.ts';
 
 const { open, scissors, screwdriver } = toRefs(useChoicesStore());
 
-const customModel = await useGLTF('src/assets/tool_01.glb');
+const customModel = await useGLTF('/assets/tool_01.glb');
 
 const pliersValues = {
   upperHandle: 0,
@@ -87,13 +87,13 @@ console.log(customModel.nodes);
 
 //TEXTURES LOADING
 const customTextures = (await useTexture([
-  'src/assets/textures/T_cover_Normal.png',
-  'src/assets/textures/T_metalBody_01_BaseColor.png',
-  'src/assets/textures/T_metalBody_01_Normal.png',
-  'src/assets/textures/T_MetalBody_02_Normal.png',
-  'src/assets/textures/T_peseta_Normal.png',
-  'src/assets/textures/T_pliers_Normal.png',
-  'src/assets/textures/T_scissors_Normal.png',
+  'assets/textures/T_cover_Normal.png',
+  'assets/textures/T_metalBody_01_BaseColor.png',
+  'assets/textures/T_metalBody_01_Normal.png',
+  'assets/textures/T_MetalBody_02_Normal.png',
+  'assets/textures/T_peseta_Normal.png',
+  'assets/textures/T_pliers_Normal.png',
+  'assets/textures/T_scissors_Normal.png',
 ])) as Texture[];
 
 if (customModel.materials.M_cover instanceof MeshStandardMaterial) {
