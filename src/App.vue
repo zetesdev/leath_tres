@@ -4,6 +4,8 @@ import PlierController from './components/PlierController.vue';
 </script>
 
 <template>
-  <BaseExperience />
+  <Suspense>
+    <BaseExperience />
+  </Suspense>
   <PlierController />
 </template>

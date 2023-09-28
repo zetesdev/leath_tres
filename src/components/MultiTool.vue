@@ -83,8 +83,6 @@ watch(screwdriver, (newVal) => {
   animateScrewdriver(newVal);
 });
 
-console.log(customModel.nodes);
-
 //TEXTURES LOADING
 const customTextures = (await useTexture([
   'assets/textures/T_cover_Normal.png',
