@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import BaseExperience from './components/BaseExperience.vue';
 import PlierController from './components/PlierController.vue';
+import ColorController from './components/ColorController.vue';
 </script>
 
 <template>
@@ -8,4 +9,5 @@ import PlierController from './components/PlierController.vue';
     <BaseExperience />
   </Suspense>
   <PlierController />
+  <ColorController />
 </template>
