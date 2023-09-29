@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { faToggleOn, faToggleOff } from '@fortawesome/free-solid-svg-icons';
 import { computed, toRefs } from 'vue';
 import { useChoicesStore } from '../stores/choices.ts';
 
@@ -41,9 +43,17 @@ const screwdriverClass = computed(() => {
       :disabled="scissors || screwdriver"
     >
       pliers
+      <font-awesome-icon
+        class="text-3xl"
+        :icon="open ? faToggleOn : faToggleOff"
+      />
     </button>
     <button :class="scissorsClass" @click="toggleScissors" :disabled="open">
       scissors
+      <font-awesome-icon
+        class="text-3xl"
+        :icon="scissors ? faToggleOn : faToggleOff"
+      />
     </button>
     <button
       :class="screwdriverClass"
@@ -51,13 +61,17 @@ const screwdriverClass = computed(() => {
       :disabled="open"
     >
       screwdriver
+      <font-awesome-icon
+        class="text-3xl"
+        :icon="screwdriver ? faToggleOn : faToggleOff"
+      />
     </button>
   </div>
 </template>
 
 <style scoped>
 button {
-  @apply text-2xl p-5;
+  @apply text-2xl p-5 mx-2 rounded-lg;
 }
 
 .active {

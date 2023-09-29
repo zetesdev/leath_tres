@@ -14,9 +14,8 @@ const { hasFinishLoading, progress } = await useProgress();
       v-show="!hasFinishLoading"
       class="bg-blue-500 t-0 l-0 w-full h-full z-20 flex justify-center items-center text-black font-mono"
     >
-      <div class="w-200px">
+      <div class="w-full text-center text-3xl">
         Loading 3D model... {{ progress }} %
-        <i class="i-ic-twotone-catching-pokemon animate-rotate-in"></i>
       </div>
     </div>
     <TresCanvas clear-color="white">
