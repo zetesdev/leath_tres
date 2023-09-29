@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import { toRefs } from 'vue';
+import { useChoicesStore } from '../stores/choices.ts';
+
+const { setColor } = toRefs(useChoicesStore());
+
 const buttons = [
   { color: '#365314' },
   { color: '#0369a1' },
@@ -15,6 +20,7 @@ const buttons = [
       v-for="(button, index) in buttons"
       :key="index"
       :style="{ background: button.color }"
+      @click="setColor(button.color)"
     ></button>
   </div>
 </template>

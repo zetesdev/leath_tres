@@ -6,7 +6,7 @@ import { useGLTF } from '@tresjs/cientos';
 import anime from 'animejs';
 import { useChoicesStore } from '../stores/choices.ts';
 
-const { open, scissors, screwdriver } = toRefs(useChoicesStore());
+const { open, scissors, screwdriver, activeColor } = toRefs(useChoicesStore());
 
 const customModel = await useGLTF('/assets/tool_01.glb');
 
@@ -81,6 +81,10 @@ watch(scissors, (newVal) => {
 
 watch(screwdriver, (newVal) => {
   animateScrewdriver(newVal);
+});
+
+watch(activeColor, (newVal) => {
+  customModel.materials.M_cover.color.setHex(newVal);
 });
 
 //TEXTURES LOADING
