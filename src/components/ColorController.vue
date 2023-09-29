@@ -14,7 +14,7 @@ const buttons = [
 </script>
 
 <template>
-  <div class="flex justify-center w-full text-3xl mt-5">
+  <div class="flex justify-center w-full text-2xl mt-5">
     <button
       class="border-4 border-black w-10 h-10 rounded-xl mx-0.5"
       v-for="(button, index) in buttons"

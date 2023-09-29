@@ -21,7 +21,12 @@ const { hasFinishLoading, progress } = await useProgress();
     </div>
     <TresCanvas clear-color="white">
       <TresPerspectiveCamera :position="[0.5, 0.5, 0.5]" :look-at="[0, 0, 0]" />
-      <OrbitControls enable-damping :max-distance="1.5" :min-distance="0.7" />
+      <OrbitControls
+        :enable-pan="false"
+        enable-damping
+        :max-distance="1.5"
+        :min-distance="0.7"
+      />
       <Suspense>
         <MyEnviro />
       </Suspense>
