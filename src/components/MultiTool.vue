@@ -84,7 +84,10 @@ watch(screwdriver, (newVal) => {
 });
 
 watch(activeColor, (newVal) => {
-  customModel.materials.M_cover.color.setHex(newVal);
+  if (customModel.materials.M_cover instanceof MeshStandardMaterial) {
+    const numericNewVal = parseInt(newVal, 16);
+    customModel.materials.M_cover.color.setHex(numericNewVal);
+  }
 });
 
 //TEXTURES LOADING
