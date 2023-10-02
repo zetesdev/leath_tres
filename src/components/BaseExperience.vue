@@ -18,7 +18,7 @@ const { hasFinishLoading, progress } = await useProgress();
         Loading 3D model... {{ progress }} %
       </div>
     </div>
-    <TresCanvas clear-color="white">
+    <TresCanvas :alpha="true">
       <TresPerspectiveCamera :position="[0.5, 0.5, 0.5]" :look-at="[0, 0, 0]" />
       <OrbitControls
         :enable-pan="false"
