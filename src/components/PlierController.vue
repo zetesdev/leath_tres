@@ -71,7 +71,7 @@ const screwdriverClass = computed(() => {
 
 <style scoped>
 button {
-  @apply text-2xl p-5 mx-2 rounded-lg;
+  @apply text-2xl p-5 mx-2 rounded-lg z-20;
 }
 
 .active {

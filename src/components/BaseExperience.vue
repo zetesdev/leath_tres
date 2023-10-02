@@ -9,14 +9,12 @@ const { hasFinishLoading, progress } = await useProgress();
 </script>
 
 <template>
-  <div class="w-full h-[75vh]">
+  <div class="fixed top-0 left-0 h-full w-full z-0">
     <div
       v-show="!hasFinishLoading"
-      class="bg-blue-500 t-0 l-0 w-full h-full z-20 flex justify-center items-center text-black font-mono"
+      class="w-full h-full z-20 flex justify-center items-center text-white text-5xl"
     >
-      <div class="w-full text-center text-3xl">
-        Loading 3D model... {{ progress }} %
-      </div>
+      <div class="">Loading 3D model... {{ progress }} %</div>
     </div>
     <TresCanvas :alpha="true">
       <TresPerspectiveCamera :position="[0.5, 0.5, 0.5]" :look-at="[0, 0, 0]" />

@@ -16,7 +16,7 @@ const buttons = [
 <template>
   <div class="flex justify-center w-full text-2xl mt-5">
     <button
-      class="border-4 border-black w-10 h-10 rounded-xl mx-0.5"
+      class="border-2 border-white w-10 h-10 rounded-xl mx-0.5 z-20"
       v-for="(button, index) in buttons"
       :key="index"
       :style="{ background: button.color }"
