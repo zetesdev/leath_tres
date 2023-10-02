@@ -36,7 +36,9 @@ const screwdriverClass = computed(() => {
 </script>
 
 <template>
-  <div class="flex justify-center w-full">
+  <div
+    class="flex w-full text-white font-light text-md portrait:md:max-lg:text-xl lg:text-3xl"
+  >
     <button
       :class="pliersClass"
       @click="toggleOpen"
@@ -44,14 +46,14 @@ const screwdriverClass = computed(() => {
     >
       pliers
       <font-awesome-icon
-        class="text-3xl transform rotate-90"
+        class="transform rotate-90"
         :icon="open ? faToggleOn : faToggleOff"
       />
     </button>
     <button :class="scissorsClass" @click="toggleScissors" :disabled="open">
       scissors
       <font-awesome-icon
-        class="text-3xl transform rotate-90"
+        class="transform rotate-90"
         :icon="scissors ? faToggleOn : faToggleOff"
       />
     </button>
@@ -62,7 +64,7 @@ const screwdriverClass = computed(() => {
     >
       screwdriver
       <font-awesome-icon
-        class="text-3xl transform rotate-90"
+        class="transform rotate-90"
         :icon="screwdriver ? faToggleOn : faToggleOff"
       />
     </button>
@@ -71,7 +73,7 @@ const screwdriverClass = computed(() => {
 
 <style scoped>
 button {
-  @apply flex text-2xl  text-white font-light border-white border-2 p-2 mx-1 rounded-lg z-20 hover:scale-105;
+  @apply flex items-center border-white border-2 p-1 mx-1 rounded-md z-20 lg:p-2 hover:scale-105;
 }
 
 .active {

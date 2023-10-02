@@ -14,7 +14,7 @@ const { hasFinishLoading, progress } = await useProgress();
       v-show="!hasFinishLoading"
       class="w-full h-full z-20 flex justify-center items-center text-white text-5xl"
     >
-      <div class="">Loading 3D model... {{ progress }} %</div>
+      <div class="text-center">Loading 3D model... {{ progress }} %</div>
     </div>
     <TresCanvas :alpha="true">
       <TresPerspectiveCamera :position="[0.5, 0.5, 0.5]" :look-at="[0, 0, 0]" />
