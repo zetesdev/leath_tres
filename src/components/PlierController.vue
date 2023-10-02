@@ -44,14 +44,14 @@ const screwdriverClass = computed(() => {
     >
       pliers
       <font-awesome-icon
-        class="text-3xl"
+        class="text-3xl transform rotate-90"
         :icon="open ? faToggleOn : faToggleOff"
       />
     </button>
     <button :class="scissorsClass" @click="toggleScissors" :disabled="open">
       scissors
       <font-awesome-icon
-        class="text-3xl"
+        class="text-3xl transform rotate-90"
         :icon="scissors ? faToggleOn : faToggleOff"
       />
     </button>
@@ -62,7 +62,7 @@ const screwdriverClass = computed(() => {
     >
       screwdriver
       <font-awesome-icon
-        class="text-3xl"
+        class="text-3xl transform rotate-90"
         :icon="screwdriver ? faToggleOn : faToggleOff"
       />
     </button>
@@ -71,14 +71,13 @@ const screwdriverClass = computed(() => {
 
 <style scoped>
 button {
-  @apply text-2xl p-5 mx-2 rounded-lg z-20;
+  @apply flex text-2xl  text-white font-light border-white border-2 p-2 mx-1 rounded-lg z-20 hover:scale-105;
 }
 
 .active {
-  @apply bg-red-500;
 }
 
 .inactive {
-  @apply bg-red-200 text-gray-200;
+  @apply bg-gray-300 text-gray-400 cursor-not-allowed opacity-75;
 }
 </style>

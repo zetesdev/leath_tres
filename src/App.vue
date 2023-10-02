@@ -9,6 +9,10 @@ import ColorController from './components/ColorController.vue';
   <Suspense>
     <BaseExperience />
   </Suspense>
-  <PlierController />
-  <ColorController />
+  <div
+    class="flex flex-col items-center fixed z-20 bottom-3 lg:bottom-5 left-1/2 -translate-x-1/2"
+  >
+    <PlierController />
+    <ColorController />
+  </div>
 </template>
