@@ -37,7 +37,7 @@ const screwdriverClass = computed(() => {
 
 <template>
   <div
-    class="flex w-full text-white font-light text-md portrait:md:max-lg:text-xl lg:text-3xl"
+    class="flex w-full text-white font-light portrait:md:max-lg:p-2 portrait:md:max-lg:text-3xl lg:text-3xl"
   >
     <button
       :class="pliersClass"

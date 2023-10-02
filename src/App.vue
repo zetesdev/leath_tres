@@ -3,9 +3,11 @@ import './App.css';
 import BaseExperience from './components/BaseExperience.vue';
 import PlierController from './components/PlierController.vue';
 import ColorController from './components/ColorController.vue';
+import AboutDev from './components/AboutDev.vue';
 </script>
 
 <template>
+  <AboutDev />
   <Suspense>
     <BaseExperience />
   </Suspense>
